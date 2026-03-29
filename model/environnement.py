@@ -34,7 +34,7 @@ class cube():
             pygame.draw.circle(surface, (0, 0, 0), circleMiddle2, radius)
 
 
-class snake():
+class snake :
     body = []
     turns = {}
 
