@@ -7,6 +7,9 @@ You can check out my video tutorial series on how to create this game: https://w
 - Python 3.x
 - pygame
 
+# Tasks : 
+    - Learn about DQN networks
+
 # tutorial on youtube to follow steps : 
 `https://www.youtube.com/watch?v=L8ypSXwyBds`
 
