@@ -1,7 +1,8 @@
 import os
+import torch
 import torch.nn as nn
 import torch.nn.functional as Funcs
-
+import torch.optim as optim
 
 class Qnet(nn.Module) :
     def __init__(self,input_size,hidden_size ,output_size):
@@ -14,9 +15,20 @@ class Qnet(nn.Module) :
         x = self.l2(x)
         return x
     def save(self, file_name='model.pth'):
-            model_folder_path = './model'
+            model_folder_path = './saved'
             if not os.path.exists(model_folder_path):
                 os.makedirs(model_folder_path)
 
             file_name = os.path.join(model_folder_path, file_name)
             torch.save(self.state_dict(), file_name)
+    
+class QTrainer :
+    def __init__(self,model,lr,gamma):
+        self.lr = lr
+        self.model = model
+        self.gamma = gamma
+        
+        # optimiser
+        self.optimizer = optim.Adam(model.parameters() , lr=self.lr)
+        self.criterion = nn.MSELoss()
+    
