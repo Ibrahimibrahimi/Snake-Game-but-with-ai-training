@@ -9,6 +9,9 @@ from main import redrawWindow
 
 # define constants
 MAX_MEMORY = 100_000 # 100_000 elements
+BATCH_SIZE = 1000
+LR = 0.001
+
 
 class Qnet(nn.Module) :
     def __init__(self,input_size,hidden_size ,output_size):
